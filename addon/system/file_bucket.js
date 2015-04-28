@@ -216,6 +216,11 @@ var FileBucket = Ember.ArrayProxy.extend(Ember.TargetActionSupport, /** @scope F
     } else {
       set(this, 'error', error);
     }
+    this.triggerAction({
+      target: get(this, 'target'),
+      action: get(this, 'onError'),
+      actionContext: error
+    });
   }
 });
 
